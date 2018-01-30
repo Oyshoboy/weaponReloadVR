@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using NewtonVR;
 
 public class sniperBoltController : MonoBehaviour
 {
 
-    [Header("Current Object Interactable Item script(auto)")]
+    [Header("Current Object Interactable Item script")]
     public NVRInteractableItem currentObjectItem;
 
     [Header("This Guns Slider relative point")]
@@ -16,14 +16,9 @@ public class sniperBoltController : MonoBehaviour
     [Header("Slider movement multiplier")]
     public float sliderMoveFactor = 1;
 
-    [Header("Interpolate speed and sliders limits")]
+    [Header("Interpolate speed")]
     public float interpolateSpeed = 0.5f;
-    public float positiveLimit = 0;
-    public float negativeLimit = -0.1f;
-    public float positiveRotLimit = 1;
-    public float negativeRotLimit = 0;
 
-    public bool boltSlide = false;
     string thisFreeHandName;
     public bool relativeColibrate = false;
     float sliderOffset;
@@ -54,8 +49,6 @@ public class sniperBoltController : MonoBehaviour
         if (!relativeColibrate)
         {
             float zInterpolate = Mathf.Lerp(Slider.transform.localPosition.z, sliderDefPosition.z, interpolateSpeed);
-
-           // Slider.transform.localPosition = new Vector3(Slider.transform.localPosition.x, Slider.transform.localPosition.y, zInterpolate);
         }
     }
 
@@ -83,7 +76,6 @@ public class sniperBoltController : MonoBehaviour
                 {
                     if (thisTrackedController.triggerPressed)
                     {
-                        //Debug.Log(relativeTransform.z);
                         if (!relativeColibrate)
                         {
                             Debug.Log("COLIBRATING RELATIVE!");
@@ -95,7 +87,6 @@ public class sniperBoltController : MonoBehaviour
                         else if (relativeColibrate)
                         {
                             rotateBolt(other);
-                            //MoveBolt(other);
                         }
                     }
                     else if (!thisTrackedController.triggerPressed)
@@ -111,9 +102,6 @@ public class sniperBoltController : MonoBehaviour
     void rotateBolt(Collider other)
     {
         Vector3 relativeTransform = relativePoint.transform.InverseTransformPoint(other.transform.position);
-        //Debug.Log(relativeTransform.y * 100 + " and last float is  " + sliderAnimator.GetFloat("BoltRotate"));
-
-        //        sliderRotateOffset.z + sliderOffset.y + (relativeTransform.y * 800));
         if(sliderAnimator.GetFloat("BoltSlide") <= 0)
         {
             sliderAnimator.SetFloat("BoltRotate", sliderRotateOffset + relativeTransform.y * 10);
@@ -123,17 +111,6 @@ public class sniperBoltController : MonoBehaviour
         {
             sliderAnimator.SetFloat("BoltSlide", -(relativeTransform.z * 10) + sliderOffset);
         }
-
-        //if (!boltSlide) {
-        //    sliderAnimator.SetFloat("BoltRotate", sliderRotateOffset + relativeTransform.y * 10);
-        //    if (sliderAnimator.GetFloat("BoltRotate") >= 1)
-        //    {
-        //        boltSlide = true; // CHECK IF NOW WE NEED TO SLIDE
-        //    }
-       // } else if (boltSlide)
-       // {   
-       //     sliderAnimator.SetFloat("BoltSlide", -(relativeTransform.z * 10)+ sliderOffset);
-       // }
     }
 
     void detachAndRestore()
@@ -141,7 +118,6 @@ public class sniperBoltController : MonoBehaviour
         relativeColibrate = false;
         normalizeSliderRot();
         normalizeSliderSlide();
-        normalizeAnimatorFloats();
         Debug.Log("Detatching!");
     }
 
@@ -159,13 +135,6 @@ public class sniperBoltController : MonoBehaviour
         }
     }
 
-    void normalizeAnimatorFloats()
-    {
-        if (sliderAnimator.GetFloat("BoltRotate") <= sliderAnimator.GetFloat("BoltSlide"))
-        {
-         //   sliderAnimator.SetFloat("BoltSlide", 0);
-        }
-    }
 
     void normalizeSliderRot()
     {
