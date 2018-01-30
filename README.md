@@ -39,6 +39,23 @@
 -12.2 <b>Relative Point</b> - set your empty gameobject called "Relative point" which we created on the step 8.<br>
 -12.3 <b>This gun Slider</b> - add guns Slider gameobject.<br>
 ![gun](http://dl3.joxi.net/drive/2018/01/30/0005/1731/378563/63/595fb1035f.jpg)<br><br>
+<br><br><br>
 
-<b> That's All! </b>
+#Sniper Bolt Controller (sniperBoltController.cs):
+
+All procedure is 80% same as with pistol, but for bolt action we need more movements and different sequence.
+So to simplify it for now, I decided to make it using animations.<br><br>
+
+1) You need to add animator controller to the slider (bolt), and record 3 animations: <b>idle, rotate, slide</b>. Each animation is should be 1 frame length, cuz transition will be automatic.
+
+2) In animator controller you need to add 2 float parametrs: <b>BoltRotate, BoltSlide</b>.<br>
+![gun](http://dl3.joxi.net/drive/2018/01/30/0005/1731/378563/63/5ad5d2f219.jpg)<br><br>
+
+3) Then add first blend tree and add 2 motions ( boltIdle and BoltRotate) and one another blendtree in "Motion" section. All blending should depend from <b>"BoltRotate"</b> parameter, and set threshold as on screenShot:<br>
+![gun](http://dl4.joxi.net/drive/2018/01/30/0005/1731/378563/63/9934c710bd.jpg)<br><br>
+
+4) In second blend tree add 2 motions: (Bolt Rotate and BoltSlide(I have mistake in animation name - blotSlide :D)) and make them blend under <b>"BoltSlide"</b> parameter.<br>
+![gun](http://dl3.joxi.net/drive/2018/01/30/0005/1731/378563/63/e895c13b0b.jpg)<br><br>
+
+<b> So, That's it! </b><br>
 <b> All contributions are welcome :) </b>
