@@ -39,9 +39,8 @@
 -12.2 <b>Relative Point</b> - set your empty gameobject called "Relative point" which we created on the step 8.<br>
 -12.3 <b>This gun Slider</b> - add guns Slider gameobject.<br>
 ![gun](http://dl3.joxi.net/drive/2018/01/30/0005/1731/378563/63/595fb1035f.jpg)<br><br>
-<br><br><br>
 
-<b> Done! Pistol is ready! <b><br><br>
+<b> Done! Pistol is ready! </b><br><br>
 
 # Sniper Bolt Controller (sniperBoltController.cs):
 
