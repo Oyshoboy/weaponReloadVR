@@ -41,3 +41,4 @@
 ![gun](http://dl3.joxi.net/drive/2018/01/30/0005/1731/378563/63/595fb1035f.jpg)<br><br>
 
 <b> That's All! </b>
+<b> All contributions are welcome :) </b>
