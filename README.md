@@ -41,7 +41,7 @@
 ![gun](http://dl3.joxi.net/drive/2018/01/30/0005/1731/378563/63/595fb1035f.jpg)<br><br>
 <br><br><br>
 
-#Sniper Bolt Controller (sniperBoltController.cs):
+# Sniper Bolt Controller (sniperBoltController.cs):
 
 All procedure is 80% same as with pistol, but for bolt action we need more movements and different sequence.
 So to simplify it for now, I decided to make it using animations.<br><br>
