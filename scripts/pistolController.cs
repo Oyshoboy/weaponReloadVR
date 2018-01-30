@@ -3,7 +3,7 @@ using NewtonVR;
 
 public class pistolController : MonoBehaviour {
 
-    [Header("Current Object Interactable Item script(auto)")]
+    [Header("Current Object Interactable Item script")]
     public NVRInteractableItem currentObjectItem;
 
     [Header("This Guns Slider relative point")]
