@@ -1,3 +1,6 @@
+# Showcase
+<a href="https://www.youtube.com/watch?v=TuSBAilQUN4">![showcase](http://dl3.joxi.net/drive/2018/01/30/0005/1731/378563/63/eb51a70308.jpg)</a> <br><br>
+
 # How to use it ( PistolController.cs ).
 1) Download <a href="https://assetstore.unity.com/packages/tools/newtonvr-75712">NVR</a> and <a href="https://assetstore.unity.com/packages/templates/systems/steamvr-plugin-32647">SteamVR</a> assets from AssetStore.
 
